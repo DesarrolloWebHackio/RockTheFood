@@ -1,0 +1,16 @@
+/*Add the styles for your component here.*/
+.main_button {
+    padding: var(--rtf-spacing-s);
+    border-radius: var(--rtf-br-primary);
+    background-color: var(--rtf-color-200);
+    color: var(--rtf-color-000);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    font-weight: 600;
+}
+
+.main_button:hover {
+    background-color: var(--rtf-color-300);
+}
