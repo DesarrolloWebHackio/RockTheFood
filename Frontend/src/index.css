@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
     --rtf-color-000: #FFFFFF;
     --rtf-color-100: #FFF7ED;
@@ -17,6 +19,7 @@
     --rtf-spacing-xxl: 30px;
 
     --rtf-font-family: "Lato", serif;
+    --rtf-font-family-secondary: "Funnel Display", serif;
 
     --rtf-br-primary: 8px;
 }
@@ -30,7 +33,37 @@
     font-family: var(--rtf-font-family);
 }
 
+button,
+p,
+label,
+input {
+    font-family: var(--rtf-font-family-secondary);
+}
+
 body {
     background-color: var(--rtf-color-100);
     min-height: 100svh;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: var(--rtf-br-primary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--rtf-color-200);
+    border-radius: var(--rtf-br-primary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--rtf-color-300);
 }

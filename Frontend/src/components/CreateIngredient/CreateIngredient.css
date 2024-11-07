@@ -1,0 +1,59 @@
+.allergens {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rtf-spacing-m);
+    margin-top: var(--rtf-spacing-s);
+    width: 100%;
+}
+
+.allergens>div {
+    border-radius: var(--rtf-br-primary);
+    border: 1px solid var(--rtf-border-color);
+    font-size: 16px;
+    padding: var(--rtf-spacing-s);
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rtf-spacing-m);
+    flex-wrap: wrap;
+    /* overflow-x: scroll; */
+}
+
+.admin-dashboard label {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.allergens>div>div {
+    display: flex;
+    gap: var(--rtf-spacing-s);
+}
+
+.allergens>div>div input:checked {
+    accent-color: var(--rtf-color-200);
+    color: white;
+}
+
+.allergens>div>div input {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-dashboard .image {
+    margin-top: var(--rtf-spacing-m);
+    cursor: pointer;
+}
+
+.admin-dashboard form button {
+    width: 100%;
+}
+
+@media (max-width: 950px) {
+    .allergens>div {
+        max-height: 250px;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+}

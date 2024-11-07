@@ -9,13 +9,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = (email, name, id) => {   
+const sendEmail = (email, name, id, token) => {
+
   const mailOptions = {
     from: process.env.NODEMAILER_EMAIL,
     to: email,
     subject: "Verifica tu cuenta",
     text: `Hola ${name}, por favor verifica tu cuenta en Rock The Food haciendo clic en el siguiente enlace.`,
-    html: `<h1>Verifica tu cuenta</h1><p>Hola ${name}, por favor verifica tu cuenta haciendo clic en el siguiente enlace:</p><a href="http://localhost:3000/api/v1/users/verify/${id}">Verificar cuenta</a>`,
+    html: `<h1>Verifica tu cuenta</h1><p>Hola ${name}, por favor verifica tu cuenta haciendo clic en el siguiente enlace:</p><a href="http://localhost:5173/verifyaccount/${id}/${token}">Verificar cuenta</a>`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -29,4 +30,4 @@ const sendEmail = (email, name, id) => {
   });
 };
 
-module.exports = { sendEmail }
+module.exports = { sendEmail };

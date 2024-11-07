@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: var(--rtf-spacing-l);
+    padding: var(--rtf-spacing-l) var(--rtf-spacing-xxl);
     border: 1px solid var(--rtf-border-color);
     gap: var(--rtf-spacing-s);
 }
@@ -26,6 +26,7 @@
 
 .form button {
     margin: var(--rtf-spacing-xxl) 0px;
+    width: 100%;
 }
 
 .form a {

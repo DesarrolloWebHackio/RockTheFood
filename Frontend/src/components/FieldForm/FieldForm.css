@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: var(--rtf-spacing-m);
     margin-top: var(--rtf-spacing-l);
-    width: 90%;
+    width: 100%;
 }
 
 .fieldform > input {

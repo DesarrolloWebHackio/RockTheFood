@@ -8,11 +8,11 @@ const register = async (req, res, next) => {
   try {
     const { email, name, password } = req.body;
 
-    const userDuplicated = await User.findOne({ email });
+    /*  const userDuplicated = await User.findOne({ email });
 
     if (userDuplicated) {
       return res.status(400).json("Usuario existente");
-    }
+    } */
 
     if (!verifyEmail(email)) {
       return res.status(400).json("Introduce un formato de email válido");
@@ -22,7 +22,7 @@ const register = async (req, res, next) => {
 
     await newUser.save();
 
-    sendEmail(email, name, newUser._id.toString());
+    sendEmail(email, name, newUser._id.toString(), password);
 
     return res.status(201).json("Cuenta de usuario creada correctamente");
   } catch (error) {
@@ -35,7 +35,7 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    
+
     if (!user) {
       return res.status(400).json("El usuario o la contraseña son incorrectos");
     }
@@ -69,10 +69,17 @@ const verifyAccount = async (req, res, next) => {
 
     req.body = user;
 
-    next();
+    const token = generateKey(id, "1h");
+    return res.status(200).json({ user, token });
   } catch (error) {
     return res.status(400).json("Error");
   }
 };
 
-module.exports = { register, verifyAccount, login };
+const checkSession = async (req, res, next) => {
+  return res
+    .status(200)
+    .json({ user: req.user, token: req.headers.authorization });
+};
+
+module.exports = { register, verifyAccount, login, checkSession };

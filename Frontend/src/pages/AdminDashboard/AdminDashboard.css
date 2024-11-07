@@ -1,0 +1,56 @@
+.admin-dashboard {
+    padding: var(--rtf-spacing-xxl);
+}
+
+.admin-dashboard>div {
+    border-radius: var(--rtf-br-primary);
+    padding: var(--rtf-spacing-l);
+    border: 1px solid var(--rtf-border-color);
+    background-color: var(--rtf-color-000);
+    display: flex;
+    flex-direction: column;
+    gap: var(--rtf-spacing-s);
+}
+
+.admin-dashboard>div>h1 {
+    color: var(--rtf-color-300);
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.admin-dashboard>div>p {
+    color: var(--rtf-color-500);
+    opacity: 0.8;
+    margin-bottom: var(--rtf-spacing-l);
+}
+
+.admin-dashboard .toggle {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 5px;
+    height: 45px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.admin-dashboard .toggle button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.504);
+    font-size: 15px;
+}
+
+.admin-dashboard .toggle button.active {
+    background-color: var(--rtf-color-000);
+    color: var(--rtf-color-500);
+}
+
+.admin-dashboard form {
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+}
