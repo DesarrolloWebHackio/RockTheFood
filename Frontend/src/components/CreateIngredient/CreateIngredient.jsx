@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import FieldForm from "../FieldForm/FieldForm";
 import Form from "../Form/Form";
 import "./CreateIngredient.css";
-import { allergens } from "../../utils/data/allergens";
 import AlertForm from "../AlertForm/AlertForm";
 import { useContext, useEffect, useRef, useState } from "react";
 import {
@@ -13,6 +12,7 @@ import { handleImage } from "../../utils/functions/handleImage";
 import { IngredientsContext } from "../../providers/IngredientsProvider";
 import Button from "../Button/Button";
 import { toggleAllergens } from "../../utils/functions/toggleAllergens";
+import { allergensImgs } from "../../utils/data/allergensImgs";
 
 const allergensSelected = [];
 
@@ -75,7 +75,7 @@ const CreateIngredient = () => {
         <div className="allergens">
           <label>Elige los alérgenos</label>
           <div>
-            {allergens.map((allergen) => (
+            {Object.keys(allergensImgs).map((allergen) => (
               <div key={allergen}>
                 <input
                   type="checkbox"

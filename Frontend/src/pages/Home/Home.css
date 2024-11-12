@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     min-height: 100svh;
+    padding: var(--rtf-spacing-xxl);
 }
 
 .link-admin {

@@ -9,6 +9,7 @@ import { checkSession } from "./reducers/users/users.actions";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import { IngredientsContext } from "./providers/IngredientsProvider";
+import { RecipesContext } from "./providers/RecipesProvider";
 
 const App = () => {
   const {
@@ -18,6 +19,9 @@ const App = () => {
   const {
     state: { loading: loadingIngredients },
   } = useContext(IngredientsContext);
+  const {
+    state: { loading: loadingRecipes },
+  } = useContext(RecipesContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +32,7 @@ const App = () => {
 
   return (
     <>
-      {loading || loadingIngredients && <Loading />}
+      {(loading || loadingRecipes || loadingIngredients) && <Loading />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Auth />} />

@@ -1,7 +1,3 @@
-import { useForm } from "react-hook-form";
-import FieldForm from "../../components/FieldForm/FieldForm";
-import Form from "../../components/Form/Form";
-import { allergens } from "../../utils/data/allergens";
 import "./AdminDashboard.css";
 import { useState } from "react";
 import CreateIngredient from "../../components/CreateIngredient/CreateIngredient";

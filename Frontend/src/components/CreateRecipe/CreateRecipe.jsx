@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import FieldForm from "../FieldForm/FieldForm";
 import Form from "../Form/Form";
 import "./CreateRecipe.css";
-import { allergens } from "../../utils/data/allergens";
+import { allergensImgs } from "../../utils/data/allergensImgs";
 
 const CreateRecipe = () => {
 
@@ -26,7 +26,7 @@ const CreateRecipe = () => {
       <div className="allergens">
         <label>Elige los alérgenos</label>
         <div>
-          {allergens.map((allergen) => (
+          {Object.keys(allergensImgs).map((allergen) => (
             <div key={allergen}>
               <input type="checkbox" />
               <p>{allergen}</p>
