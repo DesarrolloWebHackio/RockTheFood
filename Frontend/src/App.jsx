@@ -8,12 +8,16 @@ import { UsersContext } from "./providers/usersProvider";
 import { checkSession } from "./reducers/users/users.actions";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import { IngredientsContext } from "./providers/IngredientsProvider";
 
 const App = () => {
   const {
     state: { loading },
     dispatch,
   } = useContext(UsersContext);
+  const {
+    state: { loading: loadingIngredients },
+  } = useContext(IngredientsContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const App = () => {
 
   return (
     <>
-      {loading && <Loading />}
+      {loading || loadingIngredients && <Loading />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Auth />} />

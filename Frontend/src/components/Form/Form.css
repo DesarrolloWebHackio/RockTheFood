@@ -11,6 +11,7 @@
     padding: var(--rtf-spacing-l) var(--rtf-spacing-xxl);
     border: 1px solid var(--rtf-border-color);
     gap: var(--rtf-spacing-s);
+    position: relative;
 }
 
 .form > h2 {

@@ -1,7 +1,5 @@
 div.alert {
-    /* padding: var(--rtf-spacing-m); */
-    padding-top: var(--rtf-spacing-s);
-    padding-left: 35px;
+    padding: var(--rtf-spacing-s) 35px 0px 35px;
     border-radius: 10px;
     opacity: 0;
     animation: alertAnimation 0.5s forwards;
@@ -14,7 +12,6 @@ div.alert {
     align-items: start;
     flex-direction: column;
     position: relative;
-    width: 90%;
 }
 
 div.alert > div {

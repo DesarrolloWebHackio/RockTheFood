@@ -1,8 +1,13 @@
 import "./Button.css";
 
-const Button = ({ children, width }) => {
+const Button = ({ children, width, type = "submit", onClick = () => {} }) => {
   return (
-    <button className="main_button" style={{ width: width }}>
+    <button
+      onClick={onClick}
+      className="main_button"
+      style={{ width: width }}
+      type={type}
+    >
       {children}
     </button>
   );

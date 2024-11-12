@@ -7,12 +7,13 @@ export const API = async ({ endpoint, method = "GET", body, content_type }) => {
 
   if (content_type) {
     headers["Content-Type"] = "application/json";
+    body = JSON.stringify(body);
   }
 
   const res = await fetch(BASE_URL + endpoint, {
     method,
     headers,
-    body: JSON.stringify(body),
+    body,
   });
 
   const response = await res.json();
