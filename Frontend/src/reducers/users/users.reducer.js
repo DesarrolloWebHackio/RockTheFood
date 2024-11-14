@@ -3,8 +3,6 @@ export const INITIAL_USERS_STATE = {
   token: null,
   error: null,
   loading: false,
-  email: null,
-  password: null,
 };
 
 export const usersReducer = (state, action) => {
@@ -17,8 +15,6 @@ export const usersReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        email: action.payload.email,
-        password: action.payload.password,
       };
     case "ERROR":
       return { ...state, error: action.payload, loading: false };

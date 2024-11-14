@@ -1,10 +1,49 @@
+import { useContext } from "react";
 import { allergensImgs } from "../../utils/data/allergensImgs";
 import Button from "../Button/Button";
 import "./Recipe.css";
+import { UsersContext } from "../../providers/usersProvider";
+import { RecipesContext } from "../../providers/RecipesProvider";
+import { toggleLike } from "../../reducers/recipes/recipes.actions";
 
 const Recipe = ({ recipe }) => {
+  console.log(recipe);
+
+  const { state: recipesState, dispatch } = useContext(RecipesContext);
+  const { state } = useContext(UsersContext);
+  const { user } = state;
+  const { recipes } = recipesState;
+
   return (
     <article className="recipe">
+      <div
+        className="like"
+        onClick={() =>
+          toggleLike(
+            recipe._id,
+            dispatch,
+            user._id,
+            !recipe?.likes?.includes(user?._id),
+            recipes
+          )
+        }
+      >
+        {
+          <p
+            style={{
+              color: recipe?.likes?.includes(user?._id) ? "white" : "black",
+            }}
+          >
+            {recipe.likes.length}
+          </p>
+        }
+        {recipe?.likes?.includes(user?._id) ? (
+          <img src="/icons/corazon-relleno.png" className="heart" />
+        ) : (
+          <img src="/icons/corazon-vacio.png" className="heart" />
+        )}
+      </div>
+
       <div className="img">
         <img src={recipe.img} />
       </div>

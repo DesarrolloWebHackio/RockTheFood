@@ -17,6 +17,11 @@ export const recipesReducer = (state, action) => {
         loading: false,
         recipes: [...action.payload],
       };
+    case "TOGGLE_LIKE":
+      return {
+        ...state,
+        recipes: [...action.payload],
+      };
     default:
       return state;
   }

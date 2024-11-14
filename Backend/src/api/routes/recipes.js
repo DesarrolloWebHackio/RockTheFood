@@ -7,6 +7,7 @@ const {
   getRecipe,
   updateRecipe,
   deleteRecipe,
+  toggleLike,
 } = require("../controllers/recipes");
 
 const recipesRouter = require("express").Router();
@@ -27,6 +28,7 @@ recipesRouter.put(
   uploadRecipe.single("img"),
   updateRecipe
 );
+recipesRouter.put("/toggleLike/:id/:addLike", isAuth, toggleLike);
 recipesRouter.delete("/:id", isAuth, isAdmin, deleteRecipe);
 
 module.exports = recipesRouter;

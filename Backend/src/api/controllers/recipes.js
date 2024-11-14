@@ -145,7 +145,7 @@ const updateRecipe = async (req, res, next) => {
       $addToSet: {
         likes: req.body.likes,
         advices: req.body.advices,
-        ingredients: [...req.body.ingredients],
+        ingredients: req.body.ingredients && [...req.body.ingredients],
         allergens: allergens,
       },
       $push: { steps: req.body.steps },
@@ -158,6 +158,34 @@ const updateRecipe = async (req, res, next) => {
     return res
       .status(200)
       .json({ message: "Receta actualizada correctamente", recipe });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json("error");
+  }
+};
+
+const toggleLike = async (req, res, next) => {
+  try {
+    const { id, addLike } = req.params;
+
+    const query = {};
+    let property;
+
+    addLike === "true" ? (property = "$addToSet") : (property = "$pull");
+
+    query[property] = {
+      likes: req.body.likes[0],
+    };
+
+    console.log(addLike);
+
+    console.log(query);
+
+    const recipe = await Recipe.findByIdAndUpdate(id, query, { new: true });
+
+    return res
+      .status(200)
+      .json({ message: "Like cambiado correctamente", recipe });
   } catch (error) {
     console.log(error);
     return res.status(400).json("error");
@@ -181,4 +209,5 @@ module.exports = {
   getRecipe,
   updateRecipe,
   deleteRecipe,
+  toggleLike,
 };
