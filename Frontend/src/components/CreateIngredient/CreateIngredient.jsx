@@ -8,11 +8,11 @@ import {
   createIngredient,
   getIngredients,
 } from "../../reducers/ingredients/ingredients.actions";
-import { handleImage } from "../../utils/functions/handleImage";
 import { IngredientsContext } from "../../providers/IngredientsProvider";
 import Button from "../Button/Button";
-import { toggleAllergens } from "../../utils/functions/toggleAllergens";
+import { toggleCheckboxFamily } from "../../utils/functions/toggleAllergens";
 import { allergensImgs } from "../../utils/data/allergensImgs";
+import UploadImage from "../UploadImage/UploadImage";
 
 const allergensSelected = [];
 
@@ -80,7 +80,7 @@ const CreateIngredient = () => {
                 <input
                   type="checkbox"
                   onClick={(e) =>
-                    toggleAllergens(e, allergen, allergensSelected)
+                    toggleCheckboxFamily(e, allergen, allergensSelected)
                   }
                 />
                 <p>{allergen}</p>
@@ -88,20 +88,7 @@ const CreateIngredient = () => {
             ))}
           </div>
         </div>
-        <div className="div_image">
-          <label htmlFor="image" className="image">
-            Subir imagen
-            <img src="/icons/upload.png" alt="subir imagen del ingrediente" />
-          </label>
-          <input
-            id="image"
-            type="file"
-            style={{ display: "none" }}
-            onChange={(e) => handleImage(e, setImage)}
-            ref={imageRef}
-          />
-          {image && <img src={image} alt="contenido subido por el usuario" />}
-        </div>
+        <UploadImage setImage={setImage} imageRef={imageRef} image={image} />
       </Form>
 
       {openned && (

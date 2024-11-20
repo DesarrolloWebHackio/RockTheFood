@@ -26,7 +26,7 @@
 }
 
 .form button {
-    margin: var(--rtf-spacing-xxl) 0px;
+    margin: var(--rtf-spacing-m) 0px 0px 0px;
     width: 100%;
 }
 

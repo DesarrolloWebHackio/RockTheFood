@@ -1,5 +1,5 @@
-export const toggleAllergens = (e, allergen, allergensSelected) => {
+export const toggleCheckboxFamily = (e, element, array) => {
   e.target.checked
-    ? allergensSelected.push(allergen)
-    : allergensSelected.splice(allergensSelected.indexOf(allergen), 1);
+    ? array.push(element)
+    : array.splice(array.indexOf(element), 1);
 };

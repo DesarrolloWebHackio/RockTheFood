@@ -2,6 +2,7 @@ export const INITIAL_RECIPES_STATE = {
   recipes: [],
   loading: false,
   error: null,
+  recipeId: null,
 };
 
 export const recipesReducer = (state, action) => {
@@ -21,6 +22,12 @@ export const recipesReducer = (state, action) => {
       return {
         ...state,
         recipes: [...action.payload],
+      };
+    case "CREATE_RECIPE":
+      return {
+        ...state,
+        loading: false,
+        recipeId: action.payload,
       };
     default:
       return state;

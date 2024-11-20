@@ -62,3 +62,23 @@ export const toggleLike = async (
     body: { likes: [idUser] },
   });
 };
+
+export const createRecipe = async (body, dispatch, setStep) => {
+  dispatch({ type: "LOADING" });
+
+  console.log(body);
+
+  const { error, response } = await API({
+    method: "POST",
+    endpoint: "/recipes",
+    body,
+  });
+
+  if (!error) {
+    setStep(1);
+    dispatch({ type: "CREATE_RECIPE", payload: response.recipe._id });
+  }
+
+  console.log(error);
+  console.log(response);
+};
