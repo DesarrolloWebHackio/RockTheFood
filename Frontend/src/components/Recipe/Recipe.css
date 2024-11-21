@@ -101,3 +101,11 @@
 .like>img {
     width: 100%;
 }
+
+.recipe button {
+    border-radius: 0px 0px var(--rtf-br-primary) var(--rtf-br-primary);
+}
+
+.recipe button a {
+    color: white;
+}

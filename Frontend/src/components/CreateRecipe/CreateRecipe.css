@@ -133,3 +133,36 @@
     align-items: center;
     gap: var(--rtf-spacing-l);
 }
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rtf-spacing-s);
+    width: 100%;
+}
+
+.steps > div {
+    display: flex;
+    align-items: center;
+    gap: var(--rtf-spacing-s);
+    width: 100%;
+}
+
+.steps input {
+    width: 15%;
+}
+
+.steps input, .steps textarea {
+    border: 1px solid var(--rtf-border-color);
+    border-radius: var(--rtf-br-primary);
+    padding: var(--rtf-spacing-s);
+}
+
+.steps textarea {
+    width: 80%;
+}
+
+.steps button {
+    width: 35px;
+    padding: var(--rtf-spacing-xs);
+}

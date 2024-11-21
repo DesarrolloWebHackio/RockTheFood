@@ -82,3 +82,31 @@ export const createRecipe = async (body, dispatch, setStep) => {
   console.log(error);
   console.log(response);
 };
+
+export const updateRecipe = async (body, dispatch, navigate, id) => {
+  dispatch({ type: "LOADING" });
+
+  const { error, response } = await API({
+    method: "PUT",
+    endpoint: `/recipes/${id}`,
+    body,
+    content_type: true,
+  });
+
+  if (!error) {
+    dispatch({ type: "UPDATE_RECIPE", payload: response.recipe });
+    navigate(`/recipe/${response.recipe._id}`);
+  }
+};
+
+export const getRecipe = async (dispatch, id) => {
+  dispatch({ type: "LOADING" });
+
+  const { error, response } = await API({ endpoint: `/recipes/${id}` });
+
+  if (error) {
+    dispatch({ type: "ERROR", payload: error });
+  } else {
+    dispatch({ type: "GET_RECIPE", payload: response });
+  }
+};

@@ -5,10 +5,9 @@ import "./Recipe.css";
 import { UsersContext } from "../../providers/usersProvider";
 import { RecipesContext } from "../../providers/RecipesProvider";
 import { toggleLike } from "../../reducers/recipes/recipes.actions";
+import { Link } from "react-router-dom";
 
 const Recipe = ({ recipe }) => {
-  console.log(recipe);
-
   const { state: recipesState, dispatch } = useContext(RecipesContext);
   const { state } = useContext(UsersContext);
   const { user } = state;
@@ -65,7 +64,9 @@ const Recipe = ({ recipe }) => {
             />
           ))}
         </div>
-        <Button width="auto">Ver Receta</Button>
+        <Button width="auto">
+          <Link to={`/recipe/${recipe._id}`}>Ver Receta</Link>
+        </Button>
       </div>
     </article>
   );

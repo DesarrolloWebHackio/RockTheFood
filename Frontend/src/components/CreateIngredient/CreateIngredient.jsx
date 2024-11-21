@@ -33,7 +33,9 @@ const CreateIngredient = () => {
   const { ingredients } = state;
 
   useEffect(() => {
-    getIngredients(dispatch);
+    if (!ingredients.length) {
+      getIngredients(dispatch);
+    }
   }, []);
 
   return (

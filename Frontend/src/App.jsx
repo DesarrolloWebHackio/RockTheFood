@@ -10,6 +10,7 @@ import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import { IngredientsContext } from "./providers/IngredientsProvider";
 import { RecipesContext } from "./providers/RecipesProvider";
+import RecipeDetail from "./pages/RecipeDetail/RecipeDetail";
 
 const App = () => {
   const {
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/verifyaccount" element={<VerifyAccount />} />
         <Route path="/verifyaccount/:id/:token" element={<VerifyAccount />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/recipe/:id" element={<RecipeDetail />} />
       </Routes>
     </>
   );

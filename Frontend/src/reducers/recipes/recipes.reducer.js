@@ -3,6 +3,7 @@ export const INITIAL_RECIPES_STATE = {
   loading: false,
   error: null,
   recipeId: null,
+  recipe: null
 };
 
 export const recipesReducer = (state, action) => {
@@ -29,6 +30,18 @@ export const recipesReducer = (state, action) => {
         loading: false,
         recipeId: action.payload,
       };
+    case "UPDATE_RECIPE":
+      return {
+        ...state,
+        loading: false,
+        recipes: [...state.recipes, action.payload],
+      };
+    case "GET_RECIPE": 
+      return {
+        ...state, 
+        recipe: { ...action.payload },
+        loading: false
+      }
     default:
       return state;
   }

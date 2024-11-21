@@ -79,7 +79,7 @@ const getRecipes = async (req, res, next) => {
 const getRecipe = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const recipe = await Recipe.findById(id);
+    const recipe = await Recipe.findById(id).populate("ingredients.ingredient");
     return res.status(200).json(recipe);
   } catch (error) {
     return res.status(400).json("error");
@@ -137,19 +137,23 @@ const updateRecipe = async (req, res, next) => {
       allergens = [...uniqueAllergens];
     }
 
-    const recipe = await Recipe.findByIdAndUpdate(id, {
-      title: req.body.title,
-      time: req.body.time,
-      img: req.body.img,
-      difficulty: req.body.difficulty,
-      $addToSet: {
-        likes: req.body.likes,
-        advices: req.body.advices,
-        ingredients: req.body.ingredients && [...req.body.ingredients],
-        allergens: allergens,
+    const recipe = await Recipe.findByIdAndUpdate(
+      id,
+      {
+        title: req.body.title,
+        time: req.body.time,
+        img: req.body.img,
+        difficulty: req.body.difficulty,
+        $addToSet: {
+          likes: req.body.likes,
+          advices: req.body.advices,
+          ingredients: req.body.ingredients && [...req.body.ingredients],
+          allergens: allergens,
+        },
+        $push: { steps: req.body.steps },
       },
-      $push: { steps: req.body.steps },
-    });
+      { new: true }
+    );
 
     if (req.file) {
       deleteFile(recipe.img);
