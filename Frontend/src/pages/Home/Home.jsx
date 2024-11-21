@@ -11,6 +11,7 @@ import Recipe from "../../components/Recipe/Recipe";
 import FieldForm from "../../components/FieldForm/FieldForm";
 import Form from "../../components/Form/Form";
 import { useForm } from "react-hook-form";
+import { UsersContext } from "../../providers/UsersProvider";
 
 const Home = () => {
   const { state } = useContext(UsersContext);

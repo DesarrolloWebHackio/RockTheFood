@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./VerifyAccount.css";
 import { useContext, useEffect } from "react";
 import { verifyAccount } from "../../reducers/users/users.actions";
+import { UsersContext } from "../../providers/UsersProvider";
 
 const VerifyAccount = () => {
   const { id } = useParams();

@@ -5,6 +5,7 @@ import "./Recipe.css";
 import { RecipesContext } from "../../providers/RecipesProvider";
 import { toggleLike } from "../../reducers/recipes/recipes.actions";
 import { Link } from "react-router-dom";
+import { UsersContext } from "../../providers/UsersProvider";
 
 const Recipe = ({ recipe }) => {
   const { state: recipesState, dispatch } = useContext(RecipesContext);

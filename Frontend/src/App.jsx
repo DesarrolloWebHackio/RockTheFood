@@ -10,6 +10,7 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import { IngredientsContext } from "./providers/IngredientsProvider";
 import { RecipesContext } from "./providers/RecipesProvider";
 import RecipeDetail from "./pages/RecipeDetail/RecipeDetail";
+import { UsersContext } from "./providers/UsersProvider";
 
 const App = () => {
   const {

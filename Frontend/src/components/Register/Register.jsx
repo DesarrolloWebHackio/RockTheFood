@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { registerUser } from "../../reducers/users/users.actions";
 import { useContext } from "react";
 import AlertForm from "../AlertForm/AlertForm";
+import { UsersContext } from "../../providers/UsersProvider";
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
