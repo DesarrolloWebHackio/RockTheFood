@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:3000/api/v1";
+/* const BASE_URL = "http://localhost:3000/api/v1"; */
+const BASE_URL = "https://rock-the-food.vercel.app/api/v1";
+
 
 export const API = async ({ endpoint, method = "GET", body, content_type }) => {
   const headers = {
