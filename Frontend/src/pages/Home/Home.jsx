@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import "./Home.css";
-import { UsersContext } from "../../providers/usersProvider";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { RecipesContext } from "../../providers/RecipesProvider";

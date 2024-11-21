@@ -4,7 +4,6 @@ import Home from "./pages/Home/Home";
 import Auth from "./pages/Auth/Auth";
 import Loading from "./components/Loading/Loading";
 import { useContext, useEffect } from "react";
-import { UsersContext } from "./providers/usersProvider";
 import { checkSession } from "./reducers/users/users.actions";
 import VerifyAccount from "./pages/VerifyAccount/VerifyAccount";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";

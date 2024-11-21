@@ -5,7 +5,6 @@ import FieldForm from "../FieldForm/FieldForm";
 import Button from "../Button/Button";
 import Form from "../Form/Form";
 import { login } from "../../reducers/users/users.actions";
-import { UsersContext } from "../../providers/usersProvider";
 import { useContext, useEffect } from "react";
 import AlertForm from "../AlertForm/AlertForm";
 

@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { allergensImgs } from "../../utils/data/allergensImgs";
 import Button from "../Button/Button";
 import "./Recipe.css";
-import { UsersContext } from "../../providers/usersProvider";
 import { RecipesContext } from "../../providers/RecipesProvider";
 import { toggleLike } from "../../reducers/recipes/recipes.actions";
 import { Link } from "react-router-dom";
